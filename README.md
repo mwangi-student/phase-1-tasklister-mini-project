@@ -1,150 +1,74 @@
-# Challenge: TaskLister Mini-Project
+# chieby-mwangi.github.io
 
-## Learning Goals
+Sure! Here’s a comprehensive README file template for my task-lister website project:
 
-- Build a functioning to-do list application
-- Suppress a default action with `event.preventDefault()`
+# My Task Lister Website
 
-## Introduction
+Welcome to my task-lister website! This site is designed to showcase my skills, projects, and experience. It is built using HTML, CSS, and JavaScript to ensure a modern, responsive, and interactive user experience.
 
-In this lab, you'll be creating a simple to-do list application that uses
-JavaScript to manipulate the DOM.
+## Table of Contents
 
-Check out the [working demo][example]!
+- Features
+- Technologies Used
+- Installation
+- Usage
+- Resources
+- License
 
-## Lab: Build a Functioning To-Do List Application
+## Features
 
-Instead of relying on tests, this lab is _deliverable driven_. You will be
-responsible for ensuring that your solution works as intended by testing the
-behavior in the browser.
+- Responsive Design: The website adapts to various screen sizes, providing an optimal viewing experience on desktops, tablets, and mobile devices.
+- Interactive Elements: Smooth navigation and interactive components to enhance user engagement.
+- Projects Showcase: A dedicated section to display my projects, with descriptions and links to the source code or live demos.
+- Contact Form: An easy-to-use contact form for visitors to reach out to me.
 
-1. Fork and clone this repository
-2. Open `index.html` in Chrome
-3. Put your JavaScript knowledge to the test and work your way through the
-   deliverables
+## Technologies Used
 
-Once you're done, be sure to commit and push your code up to GitHub, then submit
-the assignment using CodeGrade. Even though this lab does not have tests, it
-must still be submitted through CodeGrade in order to be marked as complete in
-Canvas.
+- HTML: For structuring the content of the website.
+- CSS: For styling and layout.
+- JavaScript: For interactive elements and dynamic content.
 
-### Structuring Your Code
+## Deployment
 
-You've been provided with a basic HTML file, as well as an `index.js` file where
-you can implement your solution. Note that the `index.js` file is contained
-within a `src` folder — this is a common pattern that you will see in many labs
-moving forward. If you take a look at the `index.html` file, you'll see that the
-`script` tag that loads the code file includes the `src` directory in its path:
+-I have deployed the site with GITHUB pages.
+-View the site live at https://mwangi-student.github.io/phase-1-tasklister-mini-project.github.io/
 
-```html
-<script src="./src/index.js"></script>
-```
+## Installation
 
-### Deliverables
+To view or modify this project locally, follow these steps:
 
-- As a user, I should be able to type a task into the input field.
-- As a user, I should be able to click some form of a submit button.
-- As a user, I expect to see the task string that I provided appear in the DOM
-  after the submit button has been activated.
+1. **Clone the Repository:**
 
-**Note:** [While the example][example] shows one possible working implementation
-of the TaskLister app, yours can (and is encouraged to!) look however you like!
+   ```bash
+   git clone https://github.com/mwangi-student/phase-1-tasklister-mini-project.github.io
+   ```
 
-### HTML Forms
+2. **Navigate to the Project Directory:**
 
-For this lab, we are going to be using the [HTML `<form>` element][form] to
-capture the tasks the user enters. HTML forms can be quite complex and
-sophisticated but, at their most basic, consist of opening and closing `<form>`
-tags that enclose one or more `<input>` elements where users can enter
-information, and a way to submit the form. There are many types of [input
-fields][] to choose from; we use the `type` attribute to specify the one we
-want. For this lab, we are using two: a text field (`type="text"`) and a submit
-button (`type="submit"`).
+   ```bash
+   cd task-lister
+   ```
 
-If you look in the `index.html` file, you will see the following:
+3. **Open `index.html` in Your Browser:**
+   Simply open the `index.html` file in your preferred web browser to view the website.
 
-```html
-<form id="create-task-form" action="#" method="POST">
-  <label for="new-task-description">Task description:</label>
-  <input
-    type="text"
-    id="new-task-description"
-    name="new-task-description"
-    placeholder="description"
-  />
-  <input type="submit" value="Create New Task" />
-</form>
-```
+## Resources
 
-Now take a look at the page in your browser. The rendered form looks like this:
+### HTML
 
-![TaskLister input form](https://curriculum-content.s3.amazonaws.com/phase-1/javascript-events/task_lister.png)
+- [MDN Web Docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [W3Schools - HTML Tutorial](https://www.w3schools.com/html/)
 
-You can see each of the components that are in our form's HTML:
+### CSS
 
-1. the label for our input field ("Task description:")
-2. the input box, with the placeholder content "description", and
-3. the button that's created by the `submit` input tag
+- [MDN Web Docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [W3Schools - CSS Tutorial](https://www.w3schools.com/css/)
 
-Let's take a closer look at the opening `<form>` tag. You'll see it includes an
-(optional) `id` attribute and two other attributes:
+### JavaScript
 
-```html
-<form id="create-task-form" action="#" method="POST"></form>
-```
+- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [W3Schools - JavaScript Tutorial](https://www.w3schools.com/js/)
 
-Because HTML forms were designed to be handled by backend programming languages
-such as PHP, the `action` attribute would normally contain a path to the backend
-code that processes the data captured from the user. Because we will be handling
-the form using JavaScript, we don't need to provide a path. By convention, we
-set that attribute to `"#"`.
+## License
 
-The `method` attribute specifies the _type_ of action we're executing when the
-form is submitted. The `method` attribute's value (in this case, "POST") is an
-_HTTP Verb_. (Although it is not required, you will often see HTTP verbs in all
-caps.) We will learn more about HTTP Verbs in the next section. For now, just
-know that the `POST` method is used when we want to capture the data submitted
-by our form and use it in some way.
-
-By default, the HTML `<form>` element submits the form and redirects the browser
-to a new url when the `<submit>` button is clicked. This default behavior makes
-sense when form submission is being handled by a back-end programming language.
-However, this _is not_ the experience we want to build in this lab. We instead
-want to handle the submission of the form using JavaScript and update the DOM
-without reloading the page. Therefore, we need to prevent that event from
-performing its default behavior.
-
-### Suppress a Default Action with `Event.preventDefault()`
-
-The deliverables for this lab require you to use JavaScript to handle the
-clicking of the submit button. To do this, you'll need to listen for a `submit`
-event on the `<form>` element. In order to _prevent_ the _default_ behavior of
-the `submit` event, when our event listener "sees" the event, it needs to invoke
-the `preventDefault()` method on it.
-
-Take a look at the [MDN Documentation on `Event.preventDefault()`][mdn-pd].
-You'll see how JavaScript is used to prevent a form element (checkbox) from
-doing its _default_ behavior (appearing checked upon click). You'll want to
-prevent `submit` from doing its default behavior in a similar fashion.
-
-### Stretch Deliverables
-
-Once you've got the required deliverables working, you may want to try to
-implement one or more of the following:
-
-- A delete function that will remove tasks from your list
-- A priority value selected from a [dropdown][] that is used to determine the
-  color of the text in the list (e.g. red for high priority, yellow for medium,
-  green for low)
-  - As an additional challenge, implement a sorting functionality that displays
-    the tasks in ascending or descending order based on priority
-- An additional input field (e.g. user, duration, date due)
-- Ability to edit tasks
-- Something of your choice! The main objective is to add a feature that allows
-  the user's input to affect the DOM
-
-[example]: https://learn-co-curriculum.github.io/js-task-lister-lite/
-[mdn-pd]: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
-[form]: https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form
-[input fields]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input
-[dropdown]: https://www.w3docs.com/learn-html/html-select-tag.html
+This project is licensed under the MIT License.
